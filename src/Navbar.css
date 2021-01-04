@@ -5,26 +5,7 @@
   --danger-color: #dc3545;
   --success-color: #28a745;
 }
-.dive {
-  margin-top: 10%;
-  margin-left: 10%;
-}
-.task {
-  margin-top: 20%;
-  margin-left: 20%;
-}
-.btn {
-  display: inline-block;
-  background: var(--light-color);
-  color: #333;
-  padding: 0.4rem 1.3rem;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  margin-right: 0.5rem;
-  transition: opacity 0.2s ease-in;
-  outline: none;
-}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -259,9 +240,7 @@ img {
 
 /* Forms */
 .form .form-group {
-  margin-top: 10%;
-  margin-left: 10%;
-  width: 50%;
+  margin: 1.2rem 0;
 }
 
 .form .form-text {
@@ -333,9 +312,8 @@ button {
   z-index: 1;
   width: 100%;
   top: 0;
-  border-bottom: solid 1px black;
+  border-bottom: solid 1px var(--primary-color);
   opacity: 0.9;
-  background-color: grey;
 }
 
 .navbar ul {
@@ -343,13 +321,13 @@ button {
 }
 
 .navbar a {
-  color: black;
+  color: #fff;
   padding: 0.45rem;
   margin: 0 0.25rem;
 }
 
 .navbar a:hover {
-  color: white;
+  color: var(--primary-color);
 }
 
 .navbar .welcome span {
@@ -359,7 +337,7 @@ button {
 /* Landing Page */
 .landing {
   position: relative;
-
+  background: url("./img/showcase.jpg") no-repeat center center/cover;
   height: 100vh;
 }
 
@@ -375,108 +353,219 @@ button {
   text-align: center;
 }
 
-/* Navbar */
-.navbar {
-  height: 60px;
-  display: flex;
+/* Profiles Page */
+.profile {
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr;
   align-items: center;
-  background-color: #7c8085;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  grid-gap: 2rem;
+  padding: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
 }
-.header__logo {
-  width: 100px;
-  object-fit: contain;
-  margin: 0 20px;
-  margin-top: 18px;
+
+/* Profile Page */
+.profile-grid {
+  display: grid;
+  grid-template-areas:
+    "top top"
+    "about about"
+    "exp edu"
+    "github github";
+  grid-gap: 1rem;
 }
-.navbar ul {
-  text-align: center;
+
+.profile-top {
+  grid-area: top;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
-.navbar li {
-  font-weight: bolder;
-  color: whitesmoke;
+.profile-top img {
+  width: 250px;
 }
 
-/*Login css*/
-.login {
-  height: 100vh;
-  background-color: white;
+.profile-top .icons a {
+  color: #fff;
+  margin: 0 0.3rem;
+}
+
+.profile-top .icons a:hover {
+  color: var(--dark-color);
+}
+
+.profile-about {
+  grid-area: about;
+  text-align: center;
+}
+
+.profile-about .skills {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-top: 5%;
+  justify-content: center;
+  text-align: center;
 }
-.login__logo {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  object-fit: contain;
-  width: 100px;
-  margin-right: auto;
-  margin-left: auto;
+
+.profile-exp {
+  grid-area: exp;
 }
-.login__container {
-  width: 300px;
-  height: fit-content;
+
+.profile-edu {
+  grid-area: edu;
+}
+
+.profile-exp h2,
+.profile-edu h2 {
+  margin-bottom: 1rem;
+}
+
+.profile-exp > div,
+.profile-edu > div {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: #ccc 1px dotted;
+}
+
+.profile-exp > div:last-child,
+.profile-edu > div:last-child {
+  border: 0;
+}
+
+.profile-exp p,
+.profile-edu p {
+  margin: 0.5rem 0;
+}
+
+.profile-github {
+  grid-area: github;
+}
+
+.profile-github .repo {
   display: flex;
-  flex-direction: column;
+}
+
+.profile-github .repo > div:first-child {
+  flex: 7;
+  flex-basis: 70%;
+}
+
+.profile-github > div:last-child {
+  flex: 3;
+  flex-basis: 20%;
+}
+
+/* Posts Page */
+.post-form .post-form-header {
+  background: var(--primary-color);
+  padding: 0.5rem;
+}
+
+.post {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 2rem;
+  align-items: center;
+}
+
+.post > div:first-child {
+  text-align: center;
+}
+
+.post img {
+  width: 100px;
+}
+
+.post .comment-count {
+  background: var(--light-color);
+  color: var(--primary-color);
+  padding: 0.1rem 0.2rem;
   border-radius: 5px;
-  border: 1px solid rgb(24, 212, 212);
-  padding: 20px;
-}
-.login__container > h1 {
-  font-weight: 800;
-  margin-bottom: 20px;
-}
-.login__container > form > h5 {
-  margin-bottom: 5px;
-}
-.login__container > form > input {
-  height: 30px;
-  margin-bottom: 10px;
-  background-color: white;
-  width: 98%;
-}
-.login__container > p {
-  margin-top: 15px;
-  font-size: 12px;
-}
-.login__signInButton {
-  background-color: cyan;
-  border-radius: 2px;
-  width: 100%;
-  height: 30px;
-  border: 1px solid;
-  margin-top: 10px;
-  border-color: #092e58 #06243d #083553;
-  color: black;
-}
-.login__registerButton {
-  border-radius: 2px;
-  background-color: cyan;
-  width: 100%;
-  height: 30px;
-  border: 1px solid;
-  margin-top: 10px;
-  border-color: rgb(19, 173, 166);
-}
-/*Table*/
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+  font-size: 0.8rem;
 }
 
-td,
-th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+.post .post-date {
+  color: #aaa;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
+/* Mobile Styles */
+@media (max-width: 700px) {
+  .container {
+    margin-top: 8rem;
+  }
+
+  .hide-sm {
+    display: none;
+  }
+
+  /* Text Styles */
+  .x-large {
+    font-size: 3rem;
+  }
+
+  .large {
+    font-size: 2rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+
+  /* Navbar */
+  .navbar {
+    display: block;
+    text-align: center;
+  }
+
+  .navbar ul {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .navbar h1 {
+    margin-bottom: 1rem;
+  }
+
+  .navbar .welcome {
+    display: none;
+  }
+
+  /* Profiles Page */
+  .profile {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .profile ul {
+    display: none;
+  }
+
+  /* Profile Page */
+
+  .profile-top img,
+  .profile img {
+    width: 200px;
+    margin: auto;
+  }
+
+  .profile-grid {
+    grid-template-areas:
+      "top"
+      "about"
+      "exp"
+      "edu"
+      "github";
+  }
+
+  .post {
+    grid-template-columns: 1fr;
+  }
+  .post a,
+  .post button {
+    padding: 0.3rem 0.4rem;
+  }
 }

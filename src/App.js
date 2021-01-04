@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Fragment } from 'react';
+import {BrowserRouter as Router, Link, Route, Switch, useHistory, withRouter } from 'react-router-dom';
 import './App.css';
+import Navbar from './components/Navbar'
+import Home from './components/Home'
+import {connect, Provider} from 'react-redux'
+import store from './store'
+import Task from './components/Task'
+import SignIn from './components/SignIn'
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store = {store}>
+
+
+    <Fragment>
+    
+    <Router>
+    <Navbar/>
+      <Switch>
+        
+        <Route exact path='/home'>  <Home history={useHistory} /></Route>
+        <Route exact path='/task'><Task history={useHistory} /></Route>
+        <Route exact path='/'><SignIn history={useHistory} /></Route> 
+        
+      </Switch>
+      
+    </Router>
+  </Fragment>
+  </Provider>
   );
 }
 
-export default App;
+export default App ;
