@@ -3,11 +3,11 @@ import information from '../reducers/information'
 import {GET_INFO,FILL_TEXT} from './actionType'
 const Python = 'Python'
 const Information = {
-    python:"Information on python",
-    java:"information on Java ",
-    C : "Information on C++",
-    JavaScript:"Information on JavaScript",
-    Swift : "Information on Swift"
+    python:"Information on python:Python is an interpreted, high-level and general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant whitespace.",
+    java:"Information on Java :Java is a class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.",
+    C : "Information on C++:C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language",
+    JavaScript:"Information on JavaScript:JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions",
+    Swift : "Information on Swift:Swift is a general-purpose, multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community, first released in 2014"
 }
 
 export const getInfo = (infoType) => dispatch => {

@@ -27,8 +27,9 @@
 }
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  margin: 0%;
+  padding: 0.5%;
+  font-family: Arial, sans-serif;
 }
 
 .middle {
@@ -40,8 +41,10 @@ body {
   font-family: "Raleway", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
   color: #333;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 a {
@@ -323,6 +326,12 @@ button {
   background: var(--light-color);
 }
 
+.Dropdown {
+  color: black;
+  border: 2px solid black;
+  font-weight: 400;
+  border-radius: 2%;
+}
 /* Navbar */
 .navbar {
   display: flex;
@@ -336,6 +345,7 @@ button {
   border-bottom: solid 1px black;
   opacity: 0.9;
   background-color: grey;
+  border-radius: 1.5%;
 }
 
 .navbar ul {
@@ -380,10 +390,13 @@ button {
   height: 60px;
   display: flex;
   align-items: center;
-  background-color: #7c8085;
+  background-color: lightgray;
   position: sticky;
   top: 0;
-  z-index: 100;
+  border: 2px solid gray;
+}
+.list:hover {
+  background-color: black;
 }
 .header__logo {
   width: 100px;
@@ -399,6 +412,8 @@ button {
 .navbar li {
   font-weight: bolder;
   color: whitesmoke;
+  text-align: center;
+  padding-left: 5%;
 }
 
 /*Login css*/
@@ -479,4 +494,61 @@ th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+/* user_form */
+.user-form {
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+  margin: 5%;
+  color: #333;
+  background-color: #333;
+}
+/* logout button */
+.logout {
+  border-color: #e7e7e7;
+  color: black;
+  width: 10%;
+  margin: 1%;
+  padding: 1%;
+}
+.logout:hover {
+  background: #e7e7e7;
+}
+/* information */
+.information {
+  align-self: center;
+  margin-left: 11%;
+}
+/* password input */
+.password_input {
+  height: 1em;
+  padding: 2%;
+  width: 20%;
+  box-sizing: border-box;
+  background-color: #fafafa;
+  border-radius: 6px;
+}
+/* change button */
+.change_button {
+  border: 2px solid black;
+  background-color: white;
+  margin: 5%;
+  color: black;
+  padding: 1% 28px;
+  font-size: 16px;
+  cursor: pointer;
+  border-color: #4caf50;
+  color: green;
+  border-radius: 6px;
+}
+.change_button:hover {
+  background-color: #4caf50;
+  color: white;
+}
+/* login__logoo */
+.login__logoo {
+  height: 2em;
+  width: 6em;
+  border: 2px solid gray;
 }

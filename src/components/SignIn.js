@@ -24,19 +24,19 @@ function SignIn({Login,isAuthenticated,username,password,changePassword,logout})
     return (
         <Fragment>
             {
-                isAuthenticated ? <div>
+                isAuthenticated ? <div className="user_form">
                     <h2>Username : {username}</h2>
                     <form onSubmit={e =>{
                         e.preventDefault();
                         changePassword(e.target[0].value);
                     }} >
-                    <input type='password' placeholder={password} onChange={e => {
+                    <input className="password_input" type='password' placeholder={password} onChange={e => {
                         e.target.name = e.target.value
                     }} />   
-                    <button type='submit'>Change Password</button>
+                    <button className="change_button" type='submit'>Change Password</button>
                     </form>
 
-                    <button type='onClick' onClick={e => logout()}> logout </button>
+                    <button type='onClick' className="logout" onClick={e => logout()}> logout </button>
 
                 </div>:
         <div className="login">

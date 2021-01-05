@@ -7,7 +7,7 @@ const Information = ({data}) =>
     // select 
     
     return(   
-    <div>
+    <div className="information">
     {data}
      
     </div> 

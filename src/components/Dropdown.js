@@ -16,7 +16,7 @@ const Dropdown = ({data,getInfo}) => {
     return(<Fragment>
         <form className='form'>
         <div className='form-group' id='dive'>
-        <select name='status' value={status} onChange={e => onChange(e)}>
+        <select className="Dropdown" name='status' value={status} onChange={e => onChange(e)}>
         <option value='0'>Select Language</option>
         <option value='Java'>Java</option>
         <option value='Python'>Python</option>
