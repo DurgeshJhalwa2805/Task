@@ -4,7 +4,6 @@ import {getInfo} from '../actions/getInformation'
 import {connect} from 'react-redux'
 const Dropdown = ({data,getInfo}) => {
         var status
-        console.log(data)
         const onChange = (e) => {
         
         const p = document.createElement('p')
@@ -12,7 +11,6 @@ const Dropdown = ({data,getInfo}) => {
         
         getInfo(e.target.value)
     }
-    console.log(data)
     return(<Fragment>
         <form className='form'>
         <div className='form-group' id='dive'>

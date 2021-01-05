@@ -1,13 +1,14 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {Login} from '../actions/authentication';
 import {changePassword} from '../actions/authentication'
 import {logout} from '../actions/authentication'
+import {withRouter} from "react-router";
 
 
 
-function SignIn({Login,isAuthenticated,username,password,changePassword,logout}) {
+function SignIn({Login,isAuthenticated,username,password,changePassword,logout,history}) {
 
     
 
@@ -16,6 +17,7 @@ function SignIn({Login,isAuthenticated,username,password,changePassword,logout})
         const username = e.target[0].value
         const password = e.target[1].value
         Login(username,password);
+        history.push("/home");
         
     }
     
@@ -30,7 +32,7 @@ function SignIn({Login,isAuthenticated,username,password,changePassword,logout})
                         e.preventDefault();
                         changePassword(e.target[0].value);
                     }} >
-                    <input className="password_input" type='password' placeholder={password} onChange={e => {
+                    <input className="password_input" type='password' value={password} onChange={e => {
                         e.target.name = e.target.value
                     }} />   
                     <button className="change_button" type='submit'>Change Password</button>
@@ -72,4 +74,4 @@ const mapStateToProps = state => ({
     username:state.auth.username,
     password:state.auth.password
 })
-export default connect(mapStateToProps,{Login,changePassword,logout})(SignIn) 
+export default connect(mapStateToProps,{Login,changePassword,logout})(withRouter(SignIn)) 

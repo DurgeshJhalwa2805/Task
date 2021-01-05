@@ -1,36 +1,37 @@
 import React, { Fragment, useEffect,useState } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import { ADD_TASK } from '../actions/actionType'
-import {getReq,addTask} from '../actions/getRequest'
+import {getReq} from '../actions/getRequest'
 
-import SingleTask from './SingleTask'
-
-
-
-const Task = ({task,taskToDo,getReq,singleTask,changeCount,isAuthenticated,history,addTask}) => {
+const Task = ({task,getReq,isAuthenticated,history}) => {
 
     useEffect(() => {
         getReq();          
     }, [])
 
-    const [tasktodo,addtask]  = useState([])
-    // if(!isAuthenticated){
-    //     history.push('/')
-    // }
+    const [count,setCount] = useState(0)
+    const [tasktodo,editTask]  = useState([])
+    if(!isAuthenticated){
+        history.push('/')
+    }
 
-    var count = 0;
+    
 const onClick =(e) => {
     
     console.log(count)
      task.map((item,index) => {
-        if(index <= count){
+        if(index == count){
             
-            return addtask(taskToDo.push(item))
+        editTask(arr => [...arr,item])
+            setCount(count+1)
+            return
        }
     })
 }
-
+const Delete = (e,index) =>{
+editTask(arr => [...arr.slice(0,index),...arr.slice(index+1)])
+    return
+}
 
 return(<Fragment>
     
@@ -42,7 +43,12 @@ return(<Fragment>
     <th>Status</th>
     <th>Delete</th>
   </tr>
- {<SingleTask task={taskToDo}/>}
+ {tasktodo.map((task,index) =>  <tr>
+        <td>{task.id}</td>
+        <td>{task.title}</td>
+        <td>{(task.completed).toString()}</td>
+        <td><button  className="deletebtn" type='onClick' onClick={e => Delete(e,index)}>Delete</button></td>
+      </tr>)}
      
  </table>
     <button className='task'  onClick={ e => onClick(e)
@@ -56,4 +62,4 @@ const mapStateToProps = (state) => ({
     taskToDo:state.getReq.taskToDo,
     isAuthenticated:state.auth.isAuthenticated
 })
-export default connect(mapStateToProps,{getReq,addTask})(withRouter(Task) )
+export default connect(mapStateToProps,{getReq})(withRouter(Task) )
